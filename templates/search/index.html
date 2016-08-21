@@ -3,22 +3,51 @@
 {% block head %}
 	<title> {{date}} </title>
 	<style type="text/css">
-		img{
-			width: 60px;	
+		.img{
+			width: 80%;
+            height: 80%;
+            border: 2px solid black;
+            margin-left: 10%;
+            margin-bottom: 10%;
 		}
+
+        .pokemon {
+            width: 20%;
+            height: 20%;
+            border: 2px solid black;
+            margin: 1%;
+            background-color: gold;
+        }
+
+        .text {
+            width: 80%;
+            margin-left: 10%;
+            font-align: center;
+        }
+
+        #container {
+            width: 90vw;
+            height: 90vw;
+            /*background-color: yellow;*/
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 5vw;
+        }
+
 	</style>
 {% endblock head %}
 
 
 {% block content %}
 
-	
+<div id="container">
 {% for pokemon in pokedex %}
-	<p>{{pokemon.pokemon_name}} : 
-		type {{pokemon.pokemon_type}}</p>
-<img src='static/images/{{pokemon.pokemon_image}}'>	
+<div class="pokemon">
+    <p class="text">{{pokemon.pokemon_name}} : type {{pokemon.pokemon_type}}</p>
+    <img src='{{pokemon.pokemon_image}}' class="img">
+</div>
 {% endfor %}
-
+</div>
 
 
 	<!-- <div class='row'>
